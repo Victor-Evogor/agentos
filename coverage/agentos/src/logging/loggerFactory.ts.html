@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">61.9% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>13/21</span>
+                <span class='fraction'>21/21</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>6/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/4</span>
+                <span class='fraction'>5/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">61.9% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>13/21</span>
+                <span class='fraction'>21/21</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -92,20 +92,20 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-yes">13x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-yes">13x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { ILogger } from './ILogger';
 import { PinoLogger } from './PinoLogger';
@@ -113,21 +113,21 @@ import { PinoLogger } from './PinoLogger';
 export type LoggerFactory = (name: string, bindings?: Record&lt;string, any&gt;) =&gt; ILogger;
 &nbsp;
 let rootLogger = new PinoLogger({ name: 'agentos' });
-let currentFactory: LoggerFactory = <span class="fstat-no" title="function not covered" >(name, bindings) =&gt;</span>
-<span class="cstat-no" title="statement not covered" >  rootLogger.child({ component: name, ...(bindings || {}) });</span>
+let currentFactory: LoggerFactory = (name, bindings) =&gt;
+  rootLogger.child({ component: name, ...(bindings || {}) });
 &nbsp;
-export <span class="fstat-no" title="function not covered" >function setLoggerFactory(factory: LoggerFactory): void {</span>
-<span class="cstat-no" title="statement not covered" >  currentFactory = factory;</span>
-<span class="cstat-no" title="statement not covered" >}</span>
+export function setLoggerFactory(factory: LoggerFactory): void {
+  currentFactory = factory;
+}
 &nbsp;
-export <span class="fstat-no" title="function not covered" >function resetLoggerFactory(): void {</span>
-<span class="cstat-no" title="statement not covered" >  rootLogger = new PinoLogger({ name: 'agentos' });</span>
-<span class="cstat-no" title="statement not covered" >  currentFactory = (name, bindings) =&gt; rootLogger.child({ component: name, ...(bindings || {}) });</span>
-<span class="cstat-no" title="statement not covered" >}</span>
+export function resetLoggerFactory(): void {
+  rootLogger = new PinoLogger({ name: 'agentos' });
+  currentFactory = (name, bindings) =&gt; rootLogger.child({ component: name, ...(bindings || {}) });
+}
 &nbsp;
-export <span class="fstat-no" title="function not covered" >function createLogger(name: string, bindings?: Record&lt;string, any&gt;): ILogger {</span>
-<span class="cstat-no" title="statement not covered" >  return currentFactory(name, bindings);</span>
-<span class="cstat-no" title="statement not covered" >}</span>
+export function createLogger(name: string, bindings?: Record&lt;string, any&gt;): ILogger {
+  return currentFactory(name, bindings);
+}
 &nbsp;
 &nbsp;</pre></td></tr></table></pre>
 
@@ -136,7 +136,7 @@ export <span class="fstat-no" title="function not covered" >function createLogge
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-12-05T14:06:39.687Z
+                at 2025-12-05T14:33:43.924Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">66.66% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>20/30</span>
+                <span class='fraction'>30/30</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>7/7</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">16.66% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/6</span>
+                <span class='fraction'>6/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">66.66% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>20/30</span>
+                <span class='fraction'>30/30</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -101,28 +101,28 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">27x</span>
+<span class="cline-any cline-yes">27x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import pino, { Logger, LoggerOptions } from 'pino';
@@ -135,25 +135,25 @@ export class PinoLogger implements ILogger {
     this.base = existing ?? pino(options);
   }
 &nbsp;
-<span class="fstat-no" title="function not covered" >  info(message: string, meta?: Record&lt;string, any&gt;): void {</span>
-<span class="cstat-no" title="statement not covered" >    this.base.info(meta ?? {}, message);</span>
-<span class="cstat-no" title="statement not covered" >  }</span>
+  info(message: string, meta?: Record&lt;string, any&gt;): void {
+    this.base.info(meta ?? {}, message);
+  }
 &nbsp;
-<span class="fstat-no" title="function not covered" >  warn(message: string, meta?: Record&lt;string, any&gt;): void {</span>
-<span class="cstat-no" title="statement not covered" >    this.base.warn(meta ?? {}, message);</span>
-<span class="cstat-no" title="statement not covered" >  }</span>
+  warn(message: string, meta?: Record&lt;string, any&gt;): void {
+    this.base.warn(meta ?? {}, message);
+  }
 &nbsp;
-<span class="fstat-no" title="function not covered" >  error(message: string, meta?: Record&lt;string, any&gt;): void {</span>
-<span class="cstat-no" title="statement not covered" >    this.base.error(meta ?? {}, message);</span>
-<span class="cstat-no" title="statement not covered" >  }</span>
+  error(message: string, meta?: Record&lt;string, any&gt;): void {
+    this.base.error(meta ?? {}, message);
+  }
 &nbsp;
-<span class="fstat-no" title="function not covered" >  debug(message: string, meta?: Record&lt;string, any&gt;): void {</span>
-<span class="cstat-no" title="statement not covered" >    this.base.debug(meta ?? {}, message);</span>
-<span class="cstat-no" title="statement not covered" >  }</span>
+  debug(message: string, meta?: Record&lt;string, any&gt;): void {
+    this.base.debug(meta ?? {}, message);
+  }
 &nbsp;
-<span class="fstat-no" title="function not covered" >  child(bindings: Record&lt;string, any&gt;): ILogger {</span>
-<span class="cstat-no" title="statement not covered" >    return new PinoLogger(undefined, this.base.child(bindings));</span>
-<span class="cstat-no" title="statement not covered" >  }</span>
+  child(bindings: Record&lt;string, any&gt;): ILogger {
+    return new PinoLogger(undefined, this.base.child(bindings));
+  }
 }
 &nbsp;
 &nbsp;</pre></td></tr></table></pre>
@@ -163,7 +163,7 @@ export class PinoLogger implements ILogger {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-12-05T14:06:50.319Z
+                at 2025-12-05T14:33:50.229Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>
