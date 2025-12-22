@@ -1,4 +1,5 @@
 dist/
+agentos-workbench/backend/dist/
 tsconfig.build.tsbuildinfo
 **/*.js
 !eslint.config.js

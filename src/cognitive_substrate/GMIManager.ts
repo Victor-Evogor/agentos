@@ -5,7 +5,7 @@
  */
 
 import { uuidv4 } from '../utils/uuid';
-import { IGMI, GMIBaseConfig, ReasoningEntryType } from './IGMI';
+import { IGMI, GMIBaseConfig, ReasoningEntryType, GMIPrimeState } from './IGMI';
 import { GMI } from './GMI';
 import { IPersonaDefinition } from './personas/IPersonaDefinition';
 import { 
@@ -500,6 +500,13 @@ export class GMIManager {
 
     let gmiInstanceId = this.gmiSessionMap.get(sessionId);
     let gmi: IGMI | undefined = gmiInstanceId ? this.activeGMIs.get(gmiInstanceId) : undefined;
+
+    if (gmi && gmi.getCurrentState() === GMIPrimeState.ERRORED) {
+      console.warn(`GMIManager (ID: ${this.managerId}): GMI instance ${gmiInstanceId} is in ERRORED state. Recreating GMI.`);
+      await this.deactivateGMIForSession(sessionId);
+      gmi = undefined;
+      gmiInstanceId = undefined;
+    }
 
     if (gmi && (gmi.getPersona().id !== requestedPersonaId || overlayChanged)) {
       console.log(
